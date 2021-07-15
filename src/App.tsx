@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import PageTitle from "./components/PageTitle/PageTitle";
+import Rating from "./components/Rating/Rating";
+import Accordion from "./components/Accordion/Accordion";
+import OnOff from "./components/OnOff/OnOff";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [on, setOn] = useState(false)
+
+    return (
+        <div className="App">
+            <PageTitle title="Hello! I am a Page Title!"/>
+            <Rating />
+            <Accordion heading={'Accordion Heading!'}/>
+            <Accordion heading={'Second Accordion is Here!'}/>
+            <OnOff on={on} onOffClick={setOn} />
+        </div>
+    );
 }
 
 export default App;

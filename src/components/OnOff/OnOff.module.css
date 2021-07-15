@@ -1,0 +1,24 @@
+.wrapper .on {
+    background-color: forestgreen;
+    color: white;
+}
+.wrapper .off {
+    background-color: darkred;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.wrapper button:disabled {
+    cursor: auto;
+}
