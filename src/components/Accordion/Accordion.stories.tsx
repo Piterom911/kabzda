@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
 
-import { Meta } from '@storybook/react';
+import {Meta, Story} from '@storybook/react';
 
-import Accordion from "./Accordion";
+import Accordion, {AccordionPropsType} from "./Accordion";
 
 export default {
     title: 'Accordion',
     component: Accordion,
 } as Meta;
 
-export const AccordionTitle = () => {
-    return <Accordion heading={'Menu'} />
-}
+const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />
+
+export const AccordionTitle = Template.bind({})
+AccordionTitle.args = {heading: 'Menu2'}
+
+// export const AccordionTitle = () => {
+//     return <Accordion heading={'Menu'} />
+// }

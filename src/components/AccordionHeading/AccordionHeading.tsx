@@ -1,6 +1,6 @@
 import React from "react";
 
-type PropsType = {
+export type AccordionHeadingPropsType = {
     heading: string
     toggleMenu: () => void
 };
@@ -10,7 +10,7 @@ const headingStyle = {
     display: 'inline-block'
 }
 
-function AccordionHeading(props: PropsType) {
+function AccordionHeading(props: AccordionHeadingPropsType) {
     return (
         <h3 onClick={ () => props.toggleMenu() } style={headingStyle}>{props.heading}</h3>
     )

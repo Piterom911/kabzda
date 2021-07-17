@@ -1,21 +1,25 @@
 import React, {useState} from "react";
 import AccordionHeading from "../AccordionHeading/AccordionHeading";
 import AccordionBody from "../AccordionBody/AccordionBody";
+import {v1} from "uuid";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     heading: string,
 }
 
 function Accordion(props: AccordionPropsType) {
 
     const [collapsed, setCollapsed] = useState(true)
+    const [bodyItems, setBodyItems] = useState([
+        {id: v1(), title: 'First'}
+    ])
 
     const toggleMenu = () => { setCollapsed(!collapsed) }
 
     return (
         <div>
             <AccordionHeading toggleMenu={toggleMenu} heading={props.heading}/>
-            { !collapsed && <AccordionBody /> }
+            { !collapsed && <AccordionBody items={bodyItems} /> }
         </div>
     )
 }

@@ -1,13 +1,21 @@
 import React, {useState} from 'react';
 
-import { Meta } from '@storybook/react';
+import {Meta, Story} from '@storybook/react';
 
-import AccordionHeading from "./AccordionHeading";
+import AccordionHeading, {AccordionHeadingPropsType} from "./AccordionHeading";
 
 export default {
     title: 'Accordion Heading',
     component: AccordionHeading,
 } as Meta;
+
+const Template: Story<AccordionHeadingPropsType> = args => <AccordionHeading {...args} />
+
+export const AccordionCollapsed = Template.bind({})
+AccordionCollapsed.args = {
+    heading: 'Accordion Heading',
+    toggleMenu: () => {}
+}
 
 // export const Title = () => {
 //     const [collapsed, setCollapsed] = useState<boolean>(true)
