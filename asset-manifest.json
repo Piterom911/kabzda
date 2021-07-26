@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/piterom911/kabzda/static/css/main.cd45bd21.chunk.css",
+    "main.js": "/piterom911/kabzda/static/js/main.512c9820.chunk.js",
+    "main.js.map": "/piterom911/kabzda/static/js/main.512c9820.chunk.js.map",
+    "runtime-main.js": "/piterom911/kabzda/static/js/runtime-main.89ce494a.js",
+    "runtime-main.js.map": "/piterom911/kabzda/static/js/runtime-main.89ce494a.js.map",
+    "static/js/2.6abd654f.chunk.js": "/piterom911/kabzda/static/js/2.6abd654f.chunk.js",
+    "static/js/2.6abd654f.chunk.js.map": "/piterom911/kabzda/static/js/2.6abd654f.chunk.js.map",
+    "static/js/3.c3623c02.chunk.js": "/piterom911/kabzda/static/js/3.c3623c02.chunk.js",
+    "static/js/3.c3623c02.chunk.js.map": "/piterom911/kabzda/static/js/3.c3623c02.chunk.js.map",
+    "index.html": "/piterom911/kabzda/index.html",
+    "static/css/main.cd45bd21.chunk.css.map": "/piterom911/kabzda/static/css/main.cd45bd21.chunk.css.map",
+    "static/js/2.6abd654f.chunk.js.LICENSE.txt": "/piterom911/kabzda/static/js/2.6abd654f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.89ce494a.js",
+    "static/js/2.6abd654f.chunk.js",
+    "static/css/main.cd45bd21.chunk.css",
+    "static/js/main.512c9820.chunk.js"
+  ]
+}
