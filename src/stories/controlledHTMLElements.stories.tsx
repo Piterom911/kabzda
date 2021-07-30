@@ -6,7 +6,7 @@ export default {
     title: 'Example/input'
 };
 
-export const SimpleInput = () => {
+export const ControlledSimpleInput = () => {
     const [value, setValue] = useState<string>('')
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => setValue(event.currentTarget.value)
@@ -14,7 +14,30 @@ export const SimpleInput = () => {
     return <input type="text" value={value} onChange={onChangeHandler}/>
 }
 
-export const SimpleInputButton = () => {
+export const ControlledSimpleCheckbox = () => {
+    const [check, setCheck] = useState<boolean>(false)
+
+    const checkboxChangeHandler = (event: ChangeEvent<HTMLInputElement>) => setCheck(event.currentTarget.checked)
+
+    return <input checked={check} type="checkbox" onChange={checkboxChangeHandler} />
+}
+
+export const ControlledSimpleSelect = () => {
+    const [city, setCity] = useState('1')
+
+    const selectElementChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => setCity(event.currentTarget.value)
+
+    return (
+        <select onChange={selectElementChangeHandler} value={city} name="select" id="someID">
+            <option value="1">Austin</option>
+            <option value="2">Kiev</option>
+            <option value="3">Minsk</option>
+            <option value="4">Seattle</option>
+        </select>
+    )
+}
+
+export const UncontrolledInputWithButtonSave = () => {
     const [value, setValue] = useState<string>('')
 
     const inputRef = useRef<HTMLInputElement>(null)
