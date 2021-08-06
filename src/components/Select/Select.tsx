@@ -23,10 +23,13 @@ export function Select(props: SelectPropsType) {
     }
 
     const options = props.items.map( i => {
+        const onHoverHandler = () => {
+            props.onOptionClick(i.name)
+        }
         tabindex = tabindex + 1;
 
         return <p tabIndex={tabindex}
-                  onMouseEnter={() => setHoverOption(i.name)}
+                  onMouseEnter={onHoverHandler}
                   className={`${s.option} ${i.name === hoverOption ? s.hoverOption : ''}`}
                   onClick={() => props.onOptionClick(i.name)}
                   key={i.id}>
@@ -38,12 +41,21 @@ export function Select(props: SelectPropsType) {
         if(event.key === 'ArrowDown' || event.key === 'ArrowUp') {
             for(let i = 0; i < props.items.length; i++) {
                 if(event.key === 'ArrowDown' && i < props.items.length) {
-                    setHoverOption(props.items[i + 1].name)
-                    break
+                    if (props.items[i].name === hoverOption) {
+                        // setHoverOption(props.items[i + 1].name)
+                        props.onOptionClick(props.items[i + 1].name)
+                        console.log(i, props.items[i + 1].name)
+                        break
+                    }
+
                 }
-                if(event.key === 'ArrowUp' || i > 0) {
-                    setHoverOption(props.items[i - 1].name)
-                    break
+                if(event.key === 'ArrowUp' && i > 0) {
+
+                    if (props.items[i].name === hoverOption) {
+                        props.onOptionClick(props.items[i - 1].name)
+                        console.log(i, props.items[i - 1].name)
+                        break
+                    }
                 }
             }
         }
