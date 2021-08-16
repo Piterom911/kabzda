@@ -12,7 +12,8 @@ export type SelectItemType = {
     name: string
 }
 
-export function Select(props: SelectPropsType) {
+function SelectBefore(props: SelectPropsType) {
+    console.log(props.items.length, props.items[0].name)
     let tabindex = 0;
     const [isSelectOpened, setIsSelectOpened] = useState<boolean>(false)
     const [hoverOption, setHoverOption] = useState<string>(props.items[0].name)
@@ -20,6 +21,10 @@ export function Select(props: SelectPropsType) {
 
     const onSelectTitleClick = () => {
         setIsSelectOpened(!isSelectOpened)
+    }
+
+    const onBlurTitle = () => {
+        setIsSelectOpened(false)
     }
 
     const options = props.items.map( i => {
@@ -40,7 +45,7 @@ export function Select(props: SelectPropsType) {
     const onKeyDownHandler = (event: KeyboardEvent<HTMLDivElement>) => {
         if(event.key === 'ArrowDown' || event.key === 'ArrowUp') {
             for(let i = 0; i < props.items.length; i++) {
-                if(event.key === 'ArrowDown' && i < props.items.length) {
+                if(event.key === 'ArrowDown' && i + 1 < props.items.length) {
                     if (props.items[i].name === hoverOption) {
                         // setHoverOption(props.items[i + 1].name)
                         props.onOptionClick(props.items[i + 1].name)
@@ -63,6 +68,7 @@ export function Select(props: SelectPropsType) {
 
     return (
         <div tabIndex={0}
+             onBlur={onBlurTitle}
              onKeyDown={onKeyDownHandler}
              onClick={() => onSelectTitleClick()}
              className={s.wrapper + ' ' + s.select}>
@@ -73,3 +79,6 @@ export function Select(props: SelectPropsType) {
         </div>
     )
 }
+
+export const Select = React.memo(SelectBefore)
+

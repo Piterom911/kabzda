@@ -7,7 +7,8 @@ export type AccordionHeadingPropsType = {
 
 const headingStyle = {
     cursor: 'pointer',
-    display: 'inline-block'
+    display: 'inline-block',
+    margin: '0',
 }
 
 function AccordionHeading(props: AccordionHeadingPropsType) {

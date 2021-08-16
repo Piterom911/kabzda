@@ -4,7 +4,8 @@ import s from './Rating.module.css'
 
 export type RatingPropsType =   0 | 1 | 2 | 3 | 4 | 5
 
-function Rating() {
+function RatingBefore() {
+    console.log('Rating with memo')
 
     const [value, setValue] = useState<RatingPropsType>(0)
 
@@ -22,5 +23,7 @@ function Rating() {
         </div>
     )
 }
+
+const Rating = React.memo(RatingBefore)
 
 export default Rating;

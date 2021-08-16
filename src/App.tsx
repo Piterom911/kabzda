@@ -5,32 +5,31 @@ import Rating from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import OnOff from "./components/OnOff/OnOff";
 import {Select, SelectItemType} from "./components/Select/Select";
-import {v1} from "uuid";
 
-function App() {
+type AppPropsType = {
+    selectItems: SelectItemType[]
+}
 
-    const itemsSelect: SelectItemType[] = [
-        {id: v1(), name: 'Roman'},
-        {id: v1(), name: 'Dimych'},
-        {id: v1(), name: 'Margo'},
-        {id: v1(), name: 'Ignat'},
-    ]
+function App(props: AppPropsType) {
 
     const [on, setOn] = useState(false)
-    const [currentValue, setCurrentValue] = useState("")
+    const [currentValue, setCurrentValue] = useState(props.selectItems[0].name)
 
     const onSelectOptionClick = (name: string) => {
         setCurrentValue(name)
     }
+
+    const call = React.useCallback((name: string) => {
+        setCurrentValue(name)
+    }, [])
 
     return (
         <div className="App">
             <PageTitle title="Hello! I am a Page Title!"/>
             <Rating />
             <Accordion heading={'Accordion Heading!'}/>
-            <Accordion heading={'Second Accordion is Here!'}/>
             <OnOff on={on} onOffClick={setOn} />
-            <Select items={itemsSelect} currentValue={currentValue} onOptionClick={onSelectOptionClick} />
+            <Select items={props.selectItems} currentValue={currentValue} onOptionClick={call} />
         </div>
     );
 }

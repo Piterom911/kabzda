@@ -6,7 +6,9 @@ export type OnOffTypes = {
     on: boolean
 }
 
-export default function(props: OnOffTypes) {
+export function OnOffBefore(props: OnOffTypes) {
+
+    console.log('OnOf with memo')
 
     const indicatorStyle = {
         display: 'inline-block',
@@ -27,11 +29,8 @@ export default function(props: OnOffTypes) {
             <span style={indicatorStyle} className={`${s.indicator} ${!props.on && s.indicatorOn}`}> </span>
         </div>
     )
-    // return (
-    //     <div className={s.wrapper}>
-    //         <button onClick={ () => {props.onOffClick(true)} } className={`${props.on && s.on}`} disabled={props.on}>On</button>
-    //         <button onClick={ () => {props.onOffClick(false)} } className={`${!props.on && s.off}`} disabled={!props.on}>Off</button>
-    //         <span style={indicatorStyle}></span>
-    //     </div>
-    // )
 }
+
+const OnOf = React.memo(OnOffBefore)
+
+export default OnOf

@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {SelectItemType} from "./components/Select/Select";
+import {v1} from "uuid";
+
+const itemsSelect: SelectItemType[] = [
+    {id: v1(), name: 'Roman'},
+    {id: v1(), name: 'Dimych'},
+    {id: v1(), name: 'Margo'},
+    {id: v1(), name: 'Ignat'},
+]
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App selectItems={itemsSelect} />
   </React.StrictMode>,
   document.getElementById('root')
 );

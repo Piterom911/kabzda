@@ -17,7 +17,7 @@ function Accordion(props: AccordionPropsType) {
     const toggleMenu = () => { setCollapsed(!collapsed) }
 
     return (
-        <div>
+        <div style={{margin: '25px 0'}}>
             <AccordionHeading toggleMenu={toggleMenu} heading={props.heading}/>
             { !collapsed && <AccordionBody items={bodyItems} /> }
         </div>
